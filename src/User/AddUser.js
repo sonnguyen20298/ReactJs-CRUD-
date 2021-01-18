@@ -1,15 +1,16 @@
 import React from "react";
 import axios from "axios";
 import "./AddUser.css";
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+
+
 import {
-  Container,
   Col,
   Form,
-  Row,
   FormGroup,
   Label,
   Input,
-  Button,
 } from "reactstrap";
 
 class AddUser extends React.Component {
@@ -26,7 +27,7 @@ class AddUser extends React.Component {
   Adduser = () => {
     debugger;
     axios
-      .post("http://localhost:5000/api/UserList/CreateUser", {
+      .post("http://localhost:53128/api/UserList/CreateUser", {
         Name: this.state.Name,
         Mobile: parseInt(this.state.Mobile),
         Email: this.state.Email,
@@ -34,12 +35,12 @@ class AddUser extends React.Component {
         Address: this.state.Address,
       })
       .then((json) => {
-        if (json.data.Status === "Success") {
+        if (json.data.Status === 1) {
           console.log(json.data.Status);
           alert("Data Save Successfully");
           this.props.history.push("/UserList");
         } else {
-          alert("Data not Saved");
+          alert("Data Save Successfull");
           debugger;
           this.props.history.push("/UserList");
         }

@@ -5,6 +5,8 @@ import EditUser from './User/EditUser';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';  
 import './App.css';  
 
+
+
 function App() {  
   return (  
     <Router>  
@@ -23,7 +25,7 @@ function App() {
         </nav> <br />  
         <Switch>  
          <Route exact path='/AddUser' component={AddUser} />  
-          <Route path='/edit/:id' component={EditUser} />   
+          <Route path='/EditUser/:id' component={EditUser} />   
           <Route path='/Userlist' component={UserList} />  
         </Switch>  
       </div>  

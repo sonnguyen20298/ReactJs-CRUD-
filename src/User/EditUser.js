@@ -2,6 +2,9 @@ import React from 'react';
 import { Container, Col, Form, Row, FormGroup, Label, Input, Button } from 'reactstrap';  
 import axios from 'axios'  
 import './AddUser.css'  
+import 'bootstrap/dist/css/bootstrap.css'
+
+
 
 class Edit extends React.Component {  
     constructor(props) {  
@@ -29,8 +32,9 @@ class Edit extends React.Component {
           .then(response => {  
               this.setState({   
                 Name: response.data.Name,   
-                RollNo: response.data.RollNo,  
-                Class: response.data.Class,  
+                Mobile: response.data.Mobile,  
+                Email: response.data.Email,  
+                Age: response.data.Age,  
                 Address: response.data.Address });  
   
           })  
@@ -46,19 +50,19 @@ class Edit extends React.Component {
   }  
   onChangeMobile(e) {  
     this.setState({  
-        RollNo: e.target.value  
+        Mobile: e.target.value  
     });    
   }  
   onChangeEmail(e) {  
     this.setState({  
-        Class: e.target.value  
+        Email: e.target.value  
     });  
 }  
 
 
     onChangeAge(e) {  
         this.setState({  
-            Class: e.target.value  
+            Age: e.target.value  
         });  
     } 
     onChangeAddress(e) {  
@@ -79,7 +83,7 @@ class Edit extends React.Component {
       Address: this.state.Address  
   
     };  
-    axios.post('http://localhost:50000/api', obj)  
+    axios.post('http://localhost:53128/api/EditUser', obj)  
         .then(res => console.log(res.data));  
         debugger;  
         this.props.history.push('/UserList')  

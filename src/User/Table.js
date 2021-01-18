@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 
+
 class Table extends Component {  
   
   constructor(props) {  
@@ -11,7 +12,7 @@ class Table extends Component {
     }  
       
     DeleteUser= () =>{  
-     axios.delete('http://localhost:5000/api/UserList/DeleteUser?id='+this.props.obj.Id)  
+     axios.delete('http://localhost:53128/api/UserList/DeleteUser?id='+this.props.obj.id)  
       .then(json => {  
       if(json.data.Status==='Delete'){  
       alert('Record deleted successfully!!');  
@@ -39,7 +40,7 @@ class Table extends Component {
             {obj.address}  
           </td>  
           <td>  
-            <Link to={"/edit/"+obj.id} className="btn btn-success">Edit</Link>  
+            <Link to={"/EditUser/"+obj.id} className="btn btn-success">Edit</Link>  
           </td>  
           <td>  
             <button type="button" onClick={this.DeleteUser} className="btn btn-danger">Delete</button>  

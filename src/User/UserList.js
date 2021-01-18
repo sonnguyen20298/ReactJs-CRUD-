@@ -1,6 +1,8 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
 import Table from './Table';  
+
+
   
 export default class UserList extends Component {  
   
@@ -9,11 +11,11 @@ export default class UserList extends Component {
       this.state = {business: []};  
     }  
     componentDidMount(){  
-      debugger;  
-      axios.get('http://localhost:5000/api/UserList/GetUserList')  
+      debugger;
+      axios.get('http://localhost:53128/api/UserList/GetUserList')  
         .then(response => {  
           console.log(response);
-          this.setState({ business: response.data });  
+          this.setState({ business: response.data.data });  
         })  
         .catch(function (error) {  
           console.log(error);  
